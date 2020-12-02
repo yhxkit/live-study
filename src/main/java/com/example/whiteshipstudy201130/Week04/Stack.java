@@ -1,5 +1,7 @@
 package com.example.whiteshipstudy201130.Week04;
 
+import java.util.EmptyStackException;
+
 public class Stack {
 
     int size;
@@ -17,6 +19,9 @@ public class Stack {
     }
 
     int pop() {
+        if(top < 0){
+            throw new EmptyStackException();
+        }
         int result = element[top];
         element[top--] = 0;
         return result;

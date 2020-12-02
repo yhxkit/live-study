@@ -11,7 +11,7 @@ public class DashBoard {
 
 
     public void print() throws IOException {
-        GitHub github = new GitHubBuilder().withOAuthToken("346150cb594cd675065bed232728fe88459f5fc5").build();
+        GitHub github = new GitHubBuilder().withOAuthToken("").build();
         GHRepository repo = github.getRepository("whiteship/live-study");
 
         List<GHIssue> issues = repo.getIssues(GHIssueState.ALL);
