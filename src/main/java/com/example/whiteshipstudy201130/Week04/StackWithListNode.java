@@ -16,16 +16,14 @@ public class StackWithListNode {
             size = 1;
             top = 1;
         } else {
-            ListNode last = element;
-            int num = 0;
+            ListNode last = element.next;
 
             while (last != null) {
                 last = last.next;
-                num++;
             }
 
-            size = num;
-            top = num;
+            size++;
+            top++;
 
             last.next = node;
         }
@@ -38,17 +36,14 @@ public class StackWithListNode {
         } else {
             ListNode before = element;
             ListNode last = element.next;
-            int num = 1;
 
             while (last != null) {
                 before = last;
                 last = last.next;
-                num++;
             }
 
-            num--;
-            size = num;
-            top = num;
+            size--;
+            top--;
 
             before.next = null;
             return last.data;
