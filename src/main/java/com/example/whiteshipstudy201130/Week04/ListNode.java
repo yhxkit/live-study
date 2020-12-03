@@ -1,5 +1,7 @@
 package com.example.whiteshipstudy201130.Week04;
 
+import java.util.Objects;
+
 public class ListNode {
 
     int data;
@@ -22,19 +24,21 @@ public class ListNode {
         return nodeToAdd;
     }
 
-    ListNode remove(ListNode head, int positionToRemove){
-        ListNode node = head;
-        for(int i =0 ; i<positionToRemove-2; i++){
-            node = node.next;
+    static ListNode remove(ListNode head, int positionToRemove) {
+        ListNode target = head.next;
+        ListNode before = head;
+        for (int i = 0; i < positionToRemove - 1; i++) {
+            before = target;
+            target = target.next;
         }
-        ListNode remove = node.next;
-        node.next = remove.next;
-        return remove;
+        before.next = target.next;
+        return target;
     }
+
 
     boolean contains(ListNode head, ListNode nodeTocheck){
         ListNode node = head;
-        while(node.next != null){
+        while(node != null){
             if(node.equals(nodeTocheck)){
                 return true;
             }
@@ -48,8 +52,8 @@ public class ListNode {
         if (this == o) return true;
         if (!(o instanceof ListNode)) return false;
         ListNode listNode = (ListNode) o;
-        return data == listNode.data &&
-                next.equals(listNode.next);
+        return data == listNode.data && Objects.equals(this.next, listNode.next);
     }
+
 
 }

@@ -5,21 +5,18 @@ import java.util.EmptyStackException;
 public class StackWithListNode {
 
     int size;
-    int top;
     ListNode element;
 
     public StackWithListNode() {
         element = new ListNode();
         size = 0;
-        top = 0;
     }
 
 
     void push(int data) {
         ListNode node = new ListNode(data);
-        node.add(element, node, top);
         size++;
-        top++;
+        node.add(element, node, size);
 
     }
 
@@ -27,13 +24,13 @@ public class StackWithListNode {
         if (size < 1) {
             throw new EmptyStackException();
         } else {
-            ListNode node = element.remove(element, top);
+            ListNode node = element.remove(element, size);
             size--;
-            top--;
 
             return node.data;
         }
     }
+
 
 
 }
