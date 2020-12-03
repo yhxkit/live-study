@@ -8,46 +8,32 @@ public class StackWithListNode {
     int top;
     ListNode element;
 
+    public StackWithListNode() {
+        element = new ListNode();
+        size = 0;
+        top = 0;
+    }
+
+
     void push(int data) {
         ListNode node = new ListNode(data);
-
-        if (element == null) {
-            element = node;
-            size = 1;
-            top = 1;
-        } else {
-            ListNode last = element.next;
-
-            while (last != null) {
-                last = last.next;
-            }
-
-            size++;
-            top++;
-
-            last.next = node;
-        }
+        node.add(element, node, top);
+        size++;
+        top++;
 
     }
 
     int pop() {
-        if (element == null) {
+        if (size < 1) {
             throw new EmptyStackException();
         } else {
-            ListNode before = element;
-            ListNode last = element.next;
-
-            while (last != null) {
-                before = last;
-                last = last.next;
-            }
-
+            ListNode node = element.remove(element, top);
             size--;
             top--;
 
-            before.next = null;
-            return last.data;
+            return node.data;
         }
     }
+
 
 }

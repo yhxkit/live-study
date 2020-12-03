@@ -9,6 +9,9 @@ public class ListNode {
         this.data=data;
     }
 
+    public ListNode(){
+    }
+
     ListNode add(ListNode head, ListNode nodeToAdd, int position){
         ListNode node = head;
         for(int i =0; i<position-1; i++){
